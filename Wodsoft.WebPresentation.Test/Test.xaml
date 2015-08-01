@@ -1,12 +1,19 @@
 ﻿<Page xmlns="http://schemas.wodsoft.com/web/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:html="http://schemas.wodsoft.com/web/presentation/html"
-      Title="{Binding Text, ElementName=TitleText}" DataContext="test">
+      DataContext="test">
+    <Page.Resources>
+        <Style TargetType="{x:Type Page}">
+            <Setter Property="Title" Value="Test"/>
+        </Style>
+    </Page.Resources>
     <Page.Template>
         <ControlTemplate>
             <HtmlWrapper>
                 <html:HtmlPage>
-                    <html:HtmlSpan Text="{TemplateBinding DataContext}"></html:HtmlSpan>
+                    <html:UIElementWrapper>
+                        <ContentPresenter />
+                    </html:UIElementWrapper>
                 </html:HtmlPage>
             </HtmlWrapper>
         </ControlTemplate>

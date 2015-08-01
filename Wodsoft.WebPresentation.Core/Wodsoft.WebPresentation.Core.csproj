@@ -44,6 +44,7 @@
     <Compile Include="DependencyObject.cs" />
     <Compile Include="DependencyProperty.cs" />
     <Compile Include="DependencyPropertyChangedEventArgs.cs" />
+    <Compile Include="DependencyPropertyConverter.cs" />
     <Compile Include="DependencyPropertyKey.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="Freezable.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="PropertyChangedCallback.cs" />
     <Compile Include="PropertyMetadata.cs" />
     <Compile Include="ResourceDictionary.cs" />
+    <Compile Include="Setter.cs" />
+    <Compile Include="SetterCollection.cs" />
     <Compile Include="Style.cs" />
     <Compile Include="ValidateValueCallback.cs" />
     <Compile Include="Visual.cs" />

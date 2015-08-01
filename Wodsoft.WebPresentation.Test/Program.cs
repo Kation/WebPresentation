@@ -15,6 +15,7 @@ namespace Wodsoft.Web.Test
         {
             Xaml.XamlReader reader = new Xaml.XamlReader();
             Page page = (Page)reader.Load("Test.xaml");
+            page.ApplyTemplate();
             Console.WriteLine(page.Title);
             var stream = File.Open("Test.html", FileMode.Create, FileAccess.ReadWrite, FileShare.Read);
             StreamWriter writer = new StreamWriter(stream);

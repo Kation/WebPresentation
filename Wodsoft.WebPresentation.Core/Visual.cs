@@ -39,5 +39,18 @@ namespace Wodsoft.Web
         protected internal Visual VisualParent { get { return _Parent; } }
 
         public abstract void Render(TextWriter writer);
+
+        public static void OnVisualChildPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            Visual visual = (Visual)d;
+            if (visual == null)
+                return;
+            Visual oldValue = e.OldValue as Visual;
+            if (oldValue != null && oldValue.VisualParent == visual)
+                visual.RemoveVisualChild(oldValue);
+            Visual newValue = e.NewValue as Visual;
+            if (newValue != null && newValue.VisualParent == null)
+                visual.AddVisualChild(newValue);
+        }
     }
 }

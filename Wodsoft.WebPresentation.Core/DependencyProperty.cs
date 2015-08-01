@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Wodsoft.Web
 {
+    [TypeConverter(typeof(DependencyPropertyConverter))]
     public sealed class DependencyProperty
     {
         private static Hashtable _PropertyFromName;
@@ -167,9 +169,15 @@ namespace Wodsoft.Web
 
         internal static DependencyProperty FromName(string name, Type ownerType)
         {
+            ownerType.GetFields(System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public)[0].GetValue(null);
             FromNameKey key = new FromNameKey(name, ownerType);
             DependencyProperty dp = (DependencyProperty)_PropertyFromName[key];
             return dp;
+        }
+
+        public override string ToString()
+        {
+            return OwnerType.Name + "." + Name;
         }
 
         private class FromNameKey

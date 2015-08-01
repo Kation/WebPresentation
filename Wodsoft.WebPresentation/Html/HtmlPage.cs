@@ -11,18 +11,10 @@ namespace Wodsoft.Web.Html
     [ContentProperty("Body")]
     public class HtmlPage : HtmlElement
     {
-        public static readonly DependencyProperty HeadProperty = DependencyProperty.Register("Head", typeof(HtmlHead), typeof(HtmlPage), new PropertyMetadata(OnHeadOrBodyPropertyChanged));
-        private static void OnHeadOrBodyPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            HtmlElement element = (HtmlElement)d;
-            if (e.OldValue != null && e.OldValue != BodyProperty.DefaultMetadata.DefaultValue)
-                element.RemoveVisualChild((HtmlElement)e.OldValue);
-            if (e.NewValue != null)
-                element.AddVisualChild((HtmlElement)e.NewValue);
-        }
+        public static readonly DependencyProperty HeadProperty = DependencyProperty.Register("Head", typeof(HtmlHead), typeof(HtmlPage), new PropertyMetadata(Visual.OnVisualChildPropertyChanged));
         public HtmlHead Head { get { return (HtmlHead)GetValue(HeadProperty); } set { SetValue(HeadProperty, value); } }
 
-        public static readonly DependencyProperty BodyProperty = DependencyProperty.Register("Body", typeof(HtmlBody), typeof(HtmlPage), new PropertyMetadata(new HtmlBody(), OnHeadOrBodyPropertyChanged));
+        public static readonly DependencyProperty BodyProperty = DependencyProperty.Register("Body", typeof(HtmlBody), typeof(HtmlPage), new PropertyMetadata(new HtmlBody(), Visual.OnVisualChildPropertyChanged));
         public HtmlBody Body { get { return (HtmlBody)GetValue(BodyProperty); } set { SetValue(BodyProperty, value); } }
 
         protected override int VisualChildrenCount

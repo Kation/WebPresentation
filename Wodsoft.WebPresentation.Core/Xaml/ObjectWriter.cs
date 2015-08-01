@@ -35,14 +35,14 @@ namespace Wodsoft.Web.Xaml
                 }
                 DependencyObject target = (DependencyObject)eventSender;
                 //使用自己框架的SetValue方法赋值
-                if (!(value is Expression) && member.Type.UnderlyingType != typeof(object) && member.TypeConverter != null && !member.Type.UnderlyingType.IsAssignableFrom(value.GetType()))
+                if (value != null && !(value is Expression) && member.Type.UnderlyingType != typeof(object) && member.TypeConverter != null && !member.Type.UnderlyingType.IsAssignableFrom(value.GetType()))
                     value = member.TypeConverter.ConverterInstance.ConvertFrom(value);
                 target.SetValue(dp, value);
                 return true;
             }
             else
             {
-                if (member.Type.UnderlyingType != typeof(object) && member.TypeConverter != null && !member.Type.UnderlyingType.IsAssignableFrom(value.GetType()))
+                if (value != null && member.Type.UnderlyingType != typeof(object) && member.TypeConverter != null && !member.Type.UnderlyingType.IsAssignableFrom(value.GetType()))
                     value = member.TypeConverter.ConverterInstance.ConvertFrom(value);
                 return base.OnSetValue(eventSender, member, value);
             }
@@ -57,10 +57,10 @@ namespace Wodsoft.Web.Xaml
                 //如果是属性
                 if (property.UnderlyingMember is PropertyInfo)
                 {
-                    //防止目标类型未调用静态构造函数
-                    //这里我不知道还有什么方法可以引发类型的静态构造函数
-                    if (_Instance == null)
-                        Activator.CreateInstance(property.DeclaringType.UnderlyingType);
+                    ////防止目标类型未调用静态构造函数
+                    ////这里我不知道还有什么方法可以引发类型的静态构造函数
+                    //if (_Instance == null)
+                    //    Activator.CreateInstance(property.DeclaringType.UnderlyingType);
                     //获取依赖属性
                     DependencyProperty dp = DependencyProperty.FromName(property.Name, property.DeclaringType.UnderlyingType);
                     if (dp != null)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,36 +8,55 @@ using System.Windows.Markup;
 
 namespace Wodsoft.Web
 {
-    [ContentProperty("Setters"), DictionaryKeyProperty("TargetType")]
-    public class Style : ISealable, IHaveResources
+    public class Setter : ISealable, ISupportInitialize
     {
-        private ResourceDictionary _Resources;
-        private SetterCollection _Setters;
         private bool _IsSealed;
+        private DependencyProperty _Property;
+        private object _Value;
 
-        public Style()
+        public Setter()
         {
-            _Setters = new SetterCollection();
+            _IsSealed = false;
         }
 
         [Ambient]
-        public Type TargetType { get; set; }
-
-        public ResourceDictionary Resources
+        public DependencyProperty Property
         {
             get
             {
-                if (_Resources == null)
-                    _Resources = new ResourceDictionary();
-                return _Resources;
+                return _Property;
             }
             set
             {
-                _Resources = value;
+                CheckSealed();
+                _Property = value;
             }
         }
 
-        public SetterCollection Setters { get { return _Setters; } }
+        [DependsOn("Property")]
+        public object Value
+        {
+            get
+            {
+                return _Value;
+            }
+            set
+            {
+                CheckSealed();
+                _Value = value;
+            }
+        }
+
+
+        public void BeginInit()
+        {
+
+        }
+
+        public void EndInit()
+        {
+
+        }
 
         #region Sealable
 
@@ -55,7 +75,6 @@ namespace Wodsoft.Web
             if (_IsSealed)
                 return;
             _IsSealed = true;
-            Setters.Seal();
         }
 
         private void CheckSealed()

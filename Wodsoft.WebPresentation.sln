@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.Test", "Wodsoft.WebPresentation.Test\Wodsoft.WebPresentation.Test.csproj", "{B9225A03-4F41-435B-BEB1-8BF9C0F67A61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.WebTest", "Wodsoft.WebPresentation.WebTest\Wodsoft.WebPresentation.WebTest.csproj", "{9F456D4D-E71A-4019-9B87-F635E591A1E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.Mvc", "Wodsoft.WebPresentation.Mvc\Wodsoft.WebPresentation.Mvc.csproj", "{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{B9225A03-4F41-435B-BEB1-8BF9C0F67A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9225A03-4F41-435B-BEB1-8BF9C0F67A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9225A03-4F41-435B-BEB1-8BF9C0F67A61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F456D4D-E71A-4019-9B87-F635E591A1E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F456D4D-E71A-4019-9B87-F635E591A1E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F456D4D-E71A-4019-9B87-F635E591A1E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F456D4D-E71A-4019-9B87-F635E591A1E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

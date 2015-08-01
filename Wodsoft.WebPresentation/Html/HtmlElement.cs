@@ -15,6 +15,11 @@ namespace Wodsoft.Web.Html
 
         public sealed override void OnRender(RenderContext context)
         {
+            if (Tag == null)
+            {
+                OnRenderContent(context);
+                return;
+            }
             context.Writer.WriteStartElement(Tag);
             var attributes = GetAttributes();
             foreach (var key in GetAttributes().AllKeys)

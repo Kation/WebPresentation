@@ -6,12 +6,12 @@ using System.Windows.Markup;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Web Presentation")]
-[assembly: AssemblyDescription("Wodsoft's web presentation assembly")]
+[assembly: AssemblyTitle("Wodsoft.WebPresentation.Mvc")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Wodsoft")]
-[assembly: AssemblyProduct("Web Presentation")]
-[assembly: AssemblyCopyright("Copyright © Wodsoft 2015")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Wodsoft.WebPresentation.Mvc")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,7 +21,7 @@ using System.Windows.Markup;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("9000a956-1d74-4c3e-b157-3070c17a1c2f")]
+[assembly: Guid("451b1485-df3e-4d67-8363-f993b7dbecd2")]
 
 // 程序集的版本信息由下面四个值组成: 
 //
@@ -36,11 +36,5 @@ using System.Windows.Markup;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation", "Wodsoft.Web")]
-[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation", "Wodsoft.Web.Controls")]
-[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation", "Wodsoft.Web.Controls.Primitives")]
-[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation", "Wodsoft.Web.Data")]
+[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation", "Wodsoft.Web.Mvc")]
 [assembly: XmlnsPrefix("http://schemas.wodsoft.com/web/presentation", "webp")]
-
-[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation/html", "Wodsoft.Web.Html")]
-[assembly: XmlnsPrefix("http://schemas.wodsoft.com/web/presentation/html", "html")]

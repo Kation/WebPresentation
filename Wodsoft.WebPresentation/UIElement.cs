@@ -35,7 +35,7 @@ namespace Wodsoft.Web
         
         public sealed override void Render(TextWriter writer)
         {
-            _IsRendering = true;
+            //_IsRendering = true;
             _CacheValue.Clear();
             try
             {

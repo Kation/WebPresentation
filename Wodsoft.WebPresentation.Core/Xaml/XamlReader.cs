@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
@@ -14,22 +15,33 @@ namespace Wodsoft.Web.Xaml
     {
         public object Load(Stream stream)
         {
-            return Load(new XamlXmlReader(stream));
+            return Load(new XamlXmlReader(stream, GetSchemaContext()));
         }
 
         public object Load(XmlReader reader)
         {
-            return Load(new XamlXmlReader(reader));
+            return Load(new XamlXmlReader(reader, GetSchemaContext()));
         }
 
         public object Load(TextReader reader)
         {
-            return Load(new XamlXmlReader(reader));
+            return Load(new XamlXmlReader(reader, GetSchemaContext()));
         }
 
         public object Load(string filename)
         {
-            return Load(new XamlXmlReader(filename));
+            return Load(new XamlXmlReader(filename, GetSchemaContext()));
+        }
+
+        private XamlSchemaContext GetSchemaContext()
+        {
+            List<Assembly> assemblies = new List<Assembly>
+            {
+                Assembly.Load("Wodsoft.WebPresentation.Core"),
+                Assembly.Load("Wodsoft.WebPresentation")
+            };
+            XamlSchemaContext schemaContext = new XamlSchemaContext(assemblies);
+            return schemaContext;
         }
 
         private object Load(XamlXmlReader reader)

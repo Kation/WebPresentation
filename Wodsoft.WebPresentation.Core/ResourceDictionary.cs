@@ -105,25 +105,16 @@ namespace Wodsoft.Web
             }
         }
 
-        public void CopyTo(Array array, int index)
-        {
-
-        }
+        void ICollection.CopyTo(Array array, int index) { throw new NotSupportedException(); }
 
         public int Count
         {
-            get { return _Res.Count; }
+            get { return _Res.Count + _MergedDictionaries.Count; }
         }
 
-        public bool IsSynchronized
-        {
-            get { return false; }
-        }
+        bool ICollection.IsSynchronized { get { return false; } }
 
-        public object SyncRoot
-        {
-            get { return null; }
-        }
+        object ICollection.SyncRoot { get { return null; } }
 
         IEnumerator IEnumerable.GetEnumerator()
         {

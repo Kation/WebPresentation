@@ -105,5 +105,10 @@ namespace Wodsoft.Web
                 dp.DefaultMetadata.PropertyChangedCallback(this, e);
             }
         }
+
+        public bool HasValue(DependencyProperty dp)
+        {
+            return _LocalValue.ContainsKey(dp);
+        }
     }
 }

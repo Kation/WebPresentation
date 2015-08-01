@@ -9,19 +9,44 @@ using Wodsoft.Web.Data;
 namespace Wodsoft.Web
 {
     [RuntimeNameProperty("Name")]
-    public class FrameworkElement : UIElement
+    public class FrameworkElement : UIElement, IHaveResources
     {
+        private ResourceDictionary _Resources;
         internal FrameworkElement _TemplateChild;
         internal FrameworkElement _TemplatedParent;
-        
+        private Style _StyleCache;
+        private FrameworkTemplate _Template;
+
         public static readonly DependencyProperty DataContextProperty = DependencyProperty.Register("DataContext", typeof(object), typeof(FrameworkElement));
         public object DataContext { get { return GetValue(DataContextProperty); } set { SetValue(DataContextProperty, value); } }
 
         public static readonly DependencyProperty NameProperty = DependencyProperty.Register("Name", typeof(string), typeof(FrameworkElement));
         public string Name { get { return (string)GetValue(NameProperty); } set { SetValue(NameProperty, value); } }
 
-        public static readonly DependencyProperty StyleProperty = DependencyProperty.Register("Style", typeof(Style), typeof(FrameworkElement));
+        public static readonly DependencyProperty StyleProperty = DependencyProperty.Register("Style", typeof(Style), typeof(FrameworkElement), new PropertyMetadata(OnStyleChanged));
+        private static void OnStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            FrameworkElement element = (FrameworkElement)d;
+            element._StyleCache = e.NewValue as Style;
+        }
         public Style Style { get { return (Style)GetValue(StyleProperty); } set { SetValue(StyleProperty, value); } }
+
+        public static readonly DependencyProperty TooltipProperty = DependencyProperty.Register("Tooltip", typeof(string), typeof(FrameworkElement));
+        public string Tooltip { get { return (string)GetValue(TooltipProperty); } set { SetValue(TooltipProperty, value); } }
+
+        public ResourceDictionary Resources
+        {
+            get
+            {
+                if (_Resources == null)
+                    _Resources = new ResourceDictionary();
+                return _Resources;
+            }
+            set
+            {
+                _Resources = value;
+            }
+        }
 
         #region Binding
 
@@ -52,6 +77,21 @@ namespace Wodsoft.Web
         internal void SetBindingCore(DependencyProperty dp, BindingExpressionBase expression)
         {
             SetValueCore(dp, expression);
+        }
+
+        #endregion
+
+        #region Dependency
+
+        protected override object GetValueCore(DependencyProperty dp)
+        {
+            if (!HasValue(dp) && _StyleCache != null)
+            {
+                Setter setter = _StyleCache.Setters.FirstOrDefault(t => t.Property == dp);
+                if (setter != null)
+                    return setter.Value;
+            }
+            return base.GetValueCore(dp);
         }
 
         #endregion
@@ -90,8 +130,24 @@ namespace Wodsoft.Web
 
         public void ApplyTemplate()
         {
-            if (ElementTemplate == null)
+            if (_StyleCache == null)
+            {
+                Visual visual = this;
+                while(visual != null)
+                {
+                    IHaveResources resourceContainer = visual as IHaveResources;
+                    if (resourceContainer != null && resourceContainer.Resources.Count > 0)
+                    {
+                        _StyleCache = resourceContainer.Resources[this.GetType()] as Style;
+                        if (_StyleCache != null)
+                            break;
+                    }
+                    visual = visual.VisualParent;
+                }
+            }
+            if (ElementTemplate == null || ElementTemplate == _Template)
                 return;
+            ElementTemplate.Seal();
             ElementTemplate.ApplyTemplate(this);
         }
 

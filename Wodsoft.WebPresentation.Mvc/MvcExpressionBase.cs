@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wodsoft.Web
+namespace Wodsoft.Web.Mvc
 {
-    public interface IHaveResources
+    public abstract class MvcExpressionBase : Expression
     {
-        ResourceDictionary Resources { get; }
+
     }
 }

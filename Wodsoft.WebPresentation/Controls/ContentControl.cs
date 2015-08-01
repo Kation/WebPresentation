@@ -10,7 +10,7 @@ namespace Wodsoft.Web.Controls
     [ContentProperty("Content")]
     public class ContentControl : Control
     {
-        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register("Content", typeof(object), typeof(ContentControl));
+        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register("Content", typeof(object), typeof(ContentControl), new PropertyMetadata(Visual.OnVisualChildPropertyChanged));
         public object Content { get { return GetValue(ContentProperty); } set { SetValue(ContentProperty, value); } }
     }
 }
