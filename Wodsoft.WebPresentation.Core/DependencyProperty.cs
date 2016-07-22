@@ -169,7 +169,8 @@ namespace Wodsoft.Web
 
         internal static DependencyProperty FromName(string name, Type ownerType)
         {
-            ownerType.GetFields(System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public)[0].GetValue(null);
+            var fields = ownerType.GetFields(System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public);
+            if (fields.Length > 0) fields[0].GetValue(null);
             FromNameKey key = new FromNameKey(name, ownerType);
             DependencyProperty dp = (DependencyProperty)_PropertyFromName[key];
             return dp;

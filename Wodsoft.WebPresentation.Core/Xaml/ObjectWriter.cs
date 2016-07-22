@@ -74,5 +74,10 @@ namespace Wodsoft.Web.Xaml
             }
             base.WriteStartMember(property);
         }
+
+        public override void WriteStartObject(XamlType xamlType)
+        {
+            base.WriteStartObject(xamlType);
+        }
     }
 }

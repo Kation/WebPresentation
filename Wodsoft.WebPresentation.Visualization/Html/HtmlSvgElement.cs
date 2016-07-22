@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Wodsoft.Web.Html
 {
-    public abstract class HtmlContainer : HtmlDom
+    public abstract class HtmlSvgElement : HtmlDom
     {
-        public HtmlContainer()
+        public HtmlSvgElement()
         {
-            _Children = new HtmlElementCollection(this);
+            _Children = new HtmlSvgElementCollection(this);
         }
 
-        private HtmlElementCollection _Children;
-        public HtmlElementCollection Children { get { return _Children; } }
+        private HtmlSvgElementCollection _Children;
+        public HtmlSvgElementCollection Children { get { return _Children; } }
 
-        protected internal override int VisualChildrenCount { get { return _Children.Count; } }
+        protected override int VisualChildrenCount { get { return _Children.Count; } }
 
-        protected internal override Visual GetVisualChild(int index)
+        protected override Visual GetVisualChild(int index)
         {
             return _Children[index];
         }

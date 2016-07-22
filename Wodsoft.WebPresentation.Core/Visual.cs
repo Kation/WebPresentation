@@ -29,12 +29,12 @@ namespace Wodsoft.Web
             child._Parent = null;
         }
 
-        protected virtual Visual GetVisualChild(int index)
+        protected internal virtual Visual GetVisualChild(int index)
         {
             throw new ArgumentOutOfRangeException("index");
         }
 
-        protected virtual int VisualChildrenCount { get { return 0; } }
+        protected internal virtual int VisualChildrenCount { get { return 0; } }
 
         protected internal Visual VisualParent { get { return _Parent; } }
 

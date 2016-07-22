@@ -69,7 +69,7 @@ namespace Wodsoft.Web.Mvc
                     _Views.Add(path, view);
                     return view;
                 }
-                catch
+                catch (Exception ex)
                 {
                     return null;
                 }

@@ -1,6 +1,7 @@
 ﻿<Application xmlns="http://schemas.wodsoft.com/web/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:html="http://schemas.wodsoft.com/web/presentation/html">
+             xmlns:html="http://schemas.wodsoft.com/web/presentation/html"
+             xmlns:svg="http://schemas.wodsoft.com/web/presentation/svg">
     <Application.Resources>
         <ResourceDictionary>
             <Style TargetType="{x:Type Page}">
@@ -13,6 +14,34 @@
                                         <ContentPresenter />
                                     </html:UIElementWrapper>
                                 </html:HtmlPage>
+                            </HtmlWrapper>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="{x:Type svg:Visualization}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type svg:Visualization}">
+                            <HtmlWrapper>
+                                <html:HtmlSvg Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ViewBox="{TemplateBinding ViewBox}">
+                                    <html:UIElementWrapper>
+                                        <ContentPresenter />
+                                    </html:UIElementWrapper>
+                                </html:HtmlSvg>
+                            </HtmlWrapper>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="{x:Type svg:Rectangle}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type svg:Rectangle}">
+                            <HtmlWrapper>
+                                <html:HtmlRect Rect="{TemplateBinding Rect}" Fill="{TemplateBinding Fill}" Stroke="{TemplateBinding Stroke}" StrokeWidth="{TemplateBinding StrokeWidth}"/>
                             </HtmlWrapper>
                         </ControlTemplate>
                     </Setter.Value>

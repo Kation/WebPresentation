@@ -17,7 +17,7 @@ namespace Wodsoft.Web.Html
         public static readonly DependencyProperty BodyProperty = DependencyProperty.Register("Body", typeof(HtmlBody), typeof(HtmlPage), new PropertyMetadata(new HtmlBody(), Visual.OnVisualChildPropertyChanged));
         public HtmlBody Body { get { return (HtmlBody)GetValue(BodyProperty); } set { SetValue(BodyProperty, value); } }
 
-        protected override int VisualChildrenCount
+        protected internal override int VisualChildrenCount
         {
             get
             {
@@ -30,7 +30,7 @@ namespace Wodsoft.Web.Html
             }
         }
 
-        protected override Visual GetVisualChild(int index)
+        protected internal override Visual GetVisualChild(int index)
         {
             if (index == 0)
             {

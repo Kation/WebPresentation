@@ -62,7 +62,7 @@ namespace Wodsoft.Web
                     value = expression.GetValue(this, dp);
                 return value;
             }
-            return null;
+            return dp.DefaultMetadata.DefaultValue;
         }
 
         public void SetValue(DependencyProperty dp, object value)

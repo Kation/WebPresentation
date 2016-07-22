@@ -22,7 +22,7 @@ namespace Wodsoft.Web.Html
             }
             context.Writer.WriteStartElement(Tag);
             var attributes = GetAttributes();
-            foreach (var key in GetAttributes().AllKeys)
+            foreach (var key in attributes.AllKeys)
                 context.Writer.WriteAttributeString(key, attributes[key]);
             OnRenderContent(context);
             context.Writer.WriteEndElement();

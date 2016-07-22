@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.Core", "Wodsoft.WebPresentation.Core\Wodsoft.WebPresentation.Core.csproj", "{738D1D16-6346-463C-A193-14FC0B56AA24}"
 EndProject
@@ -12,6 +12,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.WebTest", "Wodsoft.WebPresentation.WebTest\Wodsoft.WebPresentation.WebTest.csproj", "{9F456D4D-E71A-4019-9B87-F635E591A1E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.Mvc", "Wodsoft.WebPresentation.Mvc\Wodsoft.WebPresentation.Mvc.csproj", "{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.AspNet", "Wodsoft.WebPresentation.AspNet\Wodsoft.WebPresentation.AspNet.csproj", "{B8D787C5-22A8-482F-8529-FFD23EE9E877}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.Visualization", "Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.csproj", "{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D787C5-22A8-482F-8529-FFD23EE9E877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D787C5-22A8-482F-8529-FFD23EE9E877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D787C5-22A8-482F-8529-FFD23EE9E877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D787C5-22A8-482F-8529-FFD23EE9E877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

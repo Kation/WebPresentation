@@ -109,7 +109,7 @@ namespace Wodsoft.Web
 
         #region Template
 
-        protected override int VisualChildrenCount
+        protected internal override int VisualChildrenCount
         {
             get
             {
@@ -117,7 +117,7 @@ namespace Wodsoft.Web
             }
         }
 
-        protected override Visual GetVisualChild(int index)
+        protected internal override Visual GetVisualChild(int index)
         {
             if (_TemplateChild == null || index != 0)
                 throw new ArgumentOutOfRangeException("index");

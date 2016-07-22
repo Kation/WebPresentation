@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -15,6 +16,10 @@ namespace Wodsoft.Web.WebTest
     {
         protected void Application_Start()
         {
+            Assembly.Load("Wodsoft.WebPresentation.Core");
+            Assembly.Load("Wodsoft.WebPresentation");
+            Assembly.Load("Wodsoft.WebPresentation.Visualization");
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

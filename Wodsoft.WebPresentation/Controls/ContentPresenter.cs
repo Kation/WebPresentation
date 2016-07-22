@@ -36,13 +36,24 @@ namespace Wodsoft.Web.Controls
                 }
                 if (templatedParent == null)
                     return;
-                var obj = templatedParent.GetValue(ContentControl.ContentProperty);
-                if (obj != null)
+                if (templatedParent is Panel)
                 {
-                    if (obj is UIElement)
-                        ((UIElement)obj).OnRender(context);
-                    else
-                        context.Writer.WriteString(obj.ToString());
+                    Panel panel = (Panel)templatedParent;
+                    foreach(var element in panel.Children)
+                    {
+                        element.OnRender(context);
+                    }
+                }
+                else
+                {
+                    var obj = templatedParent.GetValue(ContentControl.ContentProperty);
+                    if (obj != null)
+                    {
+                        if (obj is UIElement)
+                            ((UIElement)obj).OnRender(context);
+                        else
+                            context.Writer.WriteString(obj.ToString());
+                    }
                 }
             }
         }

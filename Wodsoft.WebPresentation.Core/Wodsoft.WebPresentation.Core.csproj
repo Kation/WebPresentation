@@ -61,6 +61,7 @@
     <Compile Include="ValidateValueCallback.cs" />
     <Compile Include="Visual.cs" />
     <Compile Include="VisualCollection.cs" />
+    <Compile Include="VisualHelper.cs" />
     <Compile Include="Xaml\ObjectMemberInvoker.cs" />
     <Compile Include="Xaml\ObjectWriter.cs" />
     <Compile Include="Xaml\XamlReader.cs" />

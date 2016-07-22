@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -150,6 +151,10 @@
     <ProjectReference Include="..\Wodsoft.WebPresentation.Mvc\Wodsoft.WebPresentation.Mvc.csproj">
       <Project>{be2acc9b-5d97-4ff0-9d73-c656ae20fbea}</Project>
       <Name>Wodsoft.WebPresentation.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.csproj">
+      <Project>{bc6d7b6a-e747-470e-811c-53acec6bef39}</Project>
+      <Name>Wodsoft.WebPresentation.Visualization</Name>
     </ProjectReference>
     <ProjectReference Include="..\Wodsoft.WebPresentation\Wodsoft.WebPresentation.csproj">
       <Project>{de28ecc2-d899-4ae1-b0db-222b4f1813a5}</Project>

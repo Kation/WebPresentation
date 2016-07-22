@@ -35,12 +35,13 @@ namespace Wodsoft.Web.Xaml
 
         private XamlSchemaContext GetSchemaContext()
         {
-            List<Assembly> assemblies = new List<Assembly>
-            {
-                Assembly.Load("Wodsoft.WebPresentation.Core"),
-                Assembly.Load("Wodsoft.WebPresentation")
-            };
-            XamlSchemaContext schemaContext = new XamlSchemaContext(assemblies);
+            //List<Assembly> assemblies = new List<Assembly>
+            //{
+            //    Assembly.Load("Wodsoft.WebPresentation.Core"),
+            //    Assembly.Load("Wodsoft.WebPresentation")
+            //};
+            //AppDomain.CurrentDomain.SetupInformation.PrivateBinPath
+            XamlSchemaContext schemaContext = new XamlSchemaContext(AppDomain.CurrentDomain.GetAssemblies());
             return schemaContext;
         }
 
