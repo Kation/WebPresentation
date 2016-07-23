@@ -14,6 +14,12 @@ namespace Wodsoft.Web.Html
         public static readonly DependencyProperty RectProperty = DependencyProperty.Register("Rect", typeof(Rect), typeof(HtmlRect));
         public Rect Rect { get { return (Rect)GetValue(RectProperty); } set { SetValue(RectProperty, value); } }
 
+        public static readonly DependencyProperty RadiusXProperty = DependencyProperty.Register("RadiusX", typeof(double), typeof(HtmlRect));
+        public double RadiusX { get { return (double)GetValue(RadiusXProperty); } set { SetValue(RadiusXProperty, value); } }
+
+        public static readonly DependencyProperty RadiusYProperty = DependencyProperty.Register("RadiusY", typeof(double), typeof(HtmlRect));
+        public double RadiusY { get { return (double)GetValue(RadiusYProperty); } set { SetValue(RadiusYProperty, value); } }
+
         protected override NameValueCollection GetAttributes()
         {
             var attributes = base.GetAttributes();

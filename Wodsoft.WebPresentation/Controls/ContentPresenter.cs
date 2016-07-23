@@ -20,7 +20,7 @@ namespace Wodsoft.Web.Controls
                 else
                     context.Writer.WriteString(Content.ToString());
             }
-            else
+            else if (_TemplatedParent != null)
             {
                 FrameworkElement templatedParent = null;
                 Visual visual = this;
