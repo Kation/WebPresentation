@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wodsoft.Web.Html
+namespace Wodsoft.Web.Controls
 {
-    public abstract class HtmlSvgElement : HtmlDom
+    public class Navigator : Visualization
     {
-
     }
 }

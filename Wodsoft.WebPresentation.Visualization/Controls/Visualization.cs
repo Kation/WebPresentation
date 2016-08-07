@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Wodsoft.Web.Controls
 {
-    public class Visualization : Panel
+    public abstract class Visualization : Control
     {
-        public static readonly DependencyProperty ViewBoxProperty = DependencyProperty.Register("ViewBox", typeof(Rect), typeof(Visualization));
-        public Rect ViewBox { get { return (Rect)GetValue(ViewBoxProperty); } set { SetValue(ViewBoxProperty, value); } }
-
+        public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(Visualization));
+        public string Title { get { return (string)GetValue(TitleProperty); } set { SetValue(TitleProperty, value); } }
 
     }
 }

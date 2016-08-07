@@ -42,15 +42,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Canvas.cs" />
+    <Compile Include="Controls\ComparisonGauge.cs" />
+    <Compile Include="Controls\Gauge.cs" />
+    <Compile Include="Controls\Map.cs" />
+    <Compile Include="Controls\Navigator.cs" />
+    <Compile Include="Controls\Range.cs" />
     <Compile Include="Controls\Visualization.cs" />
+    <Compile Include="Html\HtmlCircle.cs" />
+    <Compile Include="Html\HtmlEllipse.cs" />
+    <Compile Include="Html\HtmlGroup.cs" />
+    <Compile Include="Html\HtmlLine.cs" />
+    <Compile Include="Html\HtmlPath.cs" />
     <Compile Include="Html\HtmlRect.cs" />
     <Compile Include="Html\HtmlSvg.cs" />
     <Compile Include="Html\HtmlSvgElement.cs" />
     <Compile Include="Html\HtmlSvgElementCollection.cs" />
     <Compile Include="Html\HtmlSvgSharp.cs" />
+    <Compile Include="Html\HtmlPolygon.cs" />
+    <Compile Include="Html\HtmlPolyline.cs" />
+    <Compile Include="Html\HtmlText.cs" />
+    <Compile Include="Media\Circle.cs" />
+    <Compile Include="Media\Ellipse.cs" />
     <Compile Include="Media\Line.cs" />
+    <Compile Include="Media\Path.cs" />
+    <Compile Include="Media\Polygon.cs" />
+    <Compile Include="Media\Polyline.cs" />
     <Compile Include="Media\Rectangle.cs" />
+    <Compile Include="Media\Arc.cs" />
     <Compile Include="Media\Shape.cs" />
+    <Compile Include="Media\Text.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
