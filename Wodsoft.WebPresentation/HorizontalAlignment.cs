@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wodsoft.Web.Html
+namespace Wodsoft.Web
 {
-    public abstract class HtmlSvgElement : HtmlDom
+    public enum HorizontalAlignment
     {
-
+        Left, Center, Right, Stretch
     }
 }
