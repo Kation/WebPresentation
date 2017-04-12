@@ -3,19 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.Core", "Wodsoft.WebPresentation.Core\Wodsoft.WebPresentation.Core.csproj", "{738D1D16-6346-463C-A193-14FC0B56AA24}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F4878CB8-04DD-46F4-B02C-6E70A2BCBC6E}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation", "Wodsoft.WebPresentation\Wodsoft.WebPresentation.csproj", "{DE28ECC2-D899-4AE1-B0DB-222B4F1813A5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8907DED9-C629-4408-8673-952BB2AB0BDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.Test", "Wodsoft.WebPresentation.Test\Wodsoft.WebPresentation.Test.csproj", "{B9225A03-4F41-435B-BEB1-8BF9C0F67A61}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.Core", "src\Wodsoft.WebPresentation.Core\Wodsoft.WebPresentation.Core.xproj", "{05A7E736-0D46-409C-B326-56C22B129644}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.WebTest", "Wodsoft.WebPresentation.WebTest\Wodsoft.WebPresentation.WebTest.csproj", "{9F456D4D-E71A-4019-9B87-F635E591A1E4}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation", "src\Wodsoft.WebPresentation\Wodsoft.WebPresentation.xproj", "{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.Mvc", "Wodsoft.WebPresentation.Mvc\Wodsoft.WebPresentation.Mvc.csproj", "{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.AspNetCore", "src\Wodsoft.WebPresentation.AspNetCore\Wodsoft.WebPresentation.AspNetCore.xproj", "{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.AspNet", "Wodsoft.WebPresentation.AspNet\Wodsoft.WebPresentation.AspNet.csproj", "{B8D787C5-22A8-482F-8529-FFD23EE9E877}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.AspNetCore.Mvc", "src\Wodsoft.WebPresentation.AspNetCore.Mvc\Wodsoft.WebPresentation.AspNetCore.Mvc.xproj", "{E23DF653-67BD-4D18-922C-4745850D94D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wodsoft.WebPresentation.Visualization", "Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.csproj", "{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FA892EAF-612B-437D-91CB-E92C63B1966E}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.Visualization", "src\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.xproj", "{3E62557B-E91A-4526-8614-D8C4F9F8F555}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,36 +28,35 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{738D1D16-6346-463C-A193-14FC0B56AA24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{738D1D16-6346-463C-A193-14FC0B56AA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{738D1D16-6346-463C-A193-14FC0B56AA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{738D1D16-6346-463C-A193-14FC0B56AA24}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE28ECC2-D899-4AE1-B0DB-222B4F1813A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE28ECC2-D899-4AE1-B0DB-222B4F1813A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE28ECC2-D899-4AE1-B0DB-222B4F1813A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE28ECC2-D899-4AE1-B0DB-222B4F1813A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9225A03-4F41-435B-BEB1-8BF9C0F67A61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9225A03-4F41-435B-BEB1-8BF9C0F67A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9225A03-4F41-435B-BEB1-8BF9C0F67A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9225A03-4F41-435B-BEB1-8BF9C0F67A61}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F456D4D-E71A-4019-9B87-F635E591A1E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F456D4D-E71A-4019-9B87-F635E591A1E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F456D4D-E71A-4019-9B87-F635E591A1E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F456D4D-E71A-4019-9B87-F635E591A1E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE2ACC9B-5D97-4FF0-9D73-C656AE20FBEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8D787C5-22A8-482F-8529-FFD23EE9E877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8D787C5-22A8-482F-8529-FFD23EE9E877}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8D787C5-22A8-482F-8529-FFD23EE9E877}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8D787C5-22A8-482F-8529-FFD23EE9E877}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC6D7B6A-E747-470E-811C-53ACEC6BEF39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A7E736-0D46-409C-B326-56C22B129644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A7E736-0D46-409C-B326-56C22B129644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A7E736-0D46-409C-B326-56C22B129644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A7E736-0D46-409C-B326-56C22B129644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E23DF653-67BD-4D18-922C-4745850D94D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E23DF653-67BD-4D18-922C-4745850D94D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E23DF653-67BD-4D18-922C-4745850D94D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E23DF653-67BD-4D18-922C-4745850D94D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E62557B-E91A-4526-8614-D8C4F9F8F555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E62557B-E91A-4526-8614-D8C4F9F8F555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E62557B-E91A-4526-8614-D8C4F9F8F555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E62557B-E91A-4526-8614-D8C4F9F8F555}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{05A7E736-0D46-409C-B326-56C22B129644} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
+		{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
+		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
+		{E23DF653-67BD-4D18-922C-4745850D94D9} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
+		{3E62557B-E91A-4526-8614-D8C4F9F8F555} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
 	EndGlobalSection
 EndGlobal

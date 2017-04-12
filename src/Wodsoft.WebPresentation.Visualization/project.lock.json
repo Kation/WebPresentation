@@ -1,0 +1,55 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5.1": {
+      "Wodsoft.WebPresentation/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Wodsoft.WebPresentation.Core": "1.0.0"
+        },
+        "compile": {
+          "net451/Wodsoft.WebPresentation.dll": {}
+        },
+        "runtime": {
+          "net451/Wodsoft.WebPresentation.dll": {}
+        }
+      },
+      "Wodsoft.WebPresentation.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "frameworkAssemblies": [
+          "System.Xaml",
+          "System.Xml"
+        ],
+        "compile": {
+          "net451/Wodsoft.WebPresentation.Core.dll": {}
+        },
+        "runtime": {
+          "net451/Wodsoft.WebPresentation.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Wodsoft.WebPresentation/1.0.0": {
+      "type": "project",
+      "path": "../Wodsoft.WebPresentation/project.json",
+      "msbuildProject": "../Wodsoft.WebPresentation/Wodsoft.WebPresentation.xproj"
+    },
+    "Wodsoft.WebPresentation.Core/1.0.0": {
+      "type": "project",
+      "path": "../Wodsoft.WebPresentation.Core/project.json",
+      "msbuildProject": "../Wodsoft.WebPresentation.Core/Wodsoft.WebPresentation.Core.xproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Wodsoft.WebPresentation >= 1.0.0-*"
+    ],
+    ".NETFramework,Version=v4.5.1": []
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
+}

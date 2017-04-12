@@ -1,0 +1,17 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Wodsoft.WebPresentation": "1.0.0-*",
+    "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.1.1"
+  },
+
+  "frameworks": {
+    //"netstandard1.6": {
+    //  "imports": "dnxcore50"
+    //}
+    "net451": {
+
+    }
+  }
+}

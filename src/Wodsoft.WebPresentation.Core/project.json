@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+
+  },
+
+  "frameworks": {
+    //"netstandard1.3": {
+    //  "imports": "dnxcore50",
+    //  "dependencies": {
+    //    "NETStandard.Library": "1.6.1"
+    //  }
+    //},
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Xml": "4.0.0.0",
+        "System.Xaml": "4.0.0.0"
+      }
+    }
+  }
+}
