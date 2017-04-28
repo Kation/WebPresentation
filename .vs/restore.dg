@@ -1,3 +1,8 @@
-#:D:\Github\WebPresentation\src\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.xproj
-D:\Github\WebPresentation\src\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.xproj|D:\Github\WebPresentation\src\Wodsoft.WebPresentation\Wodsoft.WebPresentation.xproj
+#:D:\Github\WebPresentation\test\Wodsoft.WebPresentation.WebTest\Wodsoft.WebPresentation.WebTest.xproj
+D:\Github\WebPresentation\test\Wodsoft.WebPresentation.WebTest\Wodsoft.WebPresentation.WebTest.xproj|D:\Github\WebPresentation\src\Wodsoft.WebPresentation.AspNetCore.Mvc\Wodsoft.WebPresentation.AspNetCore.Mvc.xproj
+D:\Github\WebPresentation\test\Wodsoft.WebPresentation.WebTest\Wodsoft.WebPresentation.WebTest.xproj|D:\Github\WebPresentation\src\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.xproj
+D:\Github\WebPresentation\src\Wodsoft.WebPresentation.AspNetCore.Mvc\Wodsoft.WebPresentation.AspNetCore.Mvc.xproj|D:\Github\WebPresentation\src\Wodsoft.WebPresentation.AspNetCore\Wodsoft.WebPresentation.AspNetCore.xproj
+D:\Github\WebPresentation\src\Wodsoft.WebPresentation.AspNetCore\Wodsoft.WebPresentation.AspNetCore.xproj|D:\Github\WebPresentation\src\Wodsoft.WebPresentation\Wodsoft.WebPresentation.xproj
 D:\Github\WebPresentation\src\Wodsoft.WebPresentation\Wodsoft.WebPresentation.xproj|D:\Github\WebPresentation\src\Wodsoft.WebPresentation.Core\Wodsoft.WebPresentation.Core.xproj
+D:\Github\WebPresentation\src\Wodsoft.WebPresentation.Core\Wodsoft.WebPresentation.Core.xproj|D:\Github\WebPresentation\src\Wodsoft.Xaml\Wodsoft.Xaml.xproj
+D:\Github\WebPresentation\src\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.xproj|D:\Github\WebPresentation\src\Wodsoft.WebPresentation\Wodsoft.WebPresentation.xproj

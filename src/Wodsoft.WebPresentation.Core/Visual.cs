@@ -11,7 +11,7 @@ namespace Wodsoft.Web
     {
         private Visual _Parent;
 
-        protected internal virtual void AddVisualChild(Visual child)
+        protected virtual void AddVisualChild(Visual child)
         {
             if (child == null)
                 return;
@@ -20,7 +20,7 @@ namespace Wodsoft.Web
             child._Parent = this;
         }
 
-        protected internal virtual void RemoveVisualChild(Visual child)
+        protected virtual void RemoveVisualChild(Visual child)
         {
             if (child == null)
                 return;
@@ -29,14 +29,33 @@ namespace Wodsoft.Web
             child._Parent = null;
         }
 
-        protected internal virtual Visual GetVisualChild(int index)
+        protected virtual Visual GetVisualChild(int index)
         {
             throw new ArgumentOutOfRangeException("index");
         }
 
-        protected internal virtual int VisualChildrenCount { get { return 0; } }
+        protected virtual int VisualChildrenCount { get { return 0; } }
 
-        protected internal Visual VisualParent { get { return _Parent; } }
+        protected Visual VisualParent { get { return _Parent; } }
+        
+        internal void InternalAddVisualChild(Visual child)
+        {
+            AddVisualChild(child);
+        }
+
+        internal void InternalRemoveVisualChild(Visual child)
+        {
+            RemoveVisualChild(child);
+        }
+
+        internal Visual InternalGetVisualChild(int index)
+        {
+            return GetVisualChild(index);
+        }
+
+        internal int InternalVisualChildrenCount { get { return VisualChildrenCount; } }
+
+        internal Visual InternalVisualParent { get { return VisualParent; } }
 
         public abstract void Render(TextWriter writer);
 

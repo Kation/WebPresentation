@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -49,7 +50,7 @@ namespace Wodsoft.Web
             if (typeMetadata != null)
                 dp.OverrideMetadata(ownerType, typeMetadata);
             else
-                if (propertyType.IsValueType)
+                if (propertyType.GetTypeInfo().IsValueType)
                     dp.DefaultMetadata.DefaultValue = Activator.CreateInstance(propertyType);
             dp.ReadOnly = false;
             return dp;
@@ -78,7 +79,7 @@ namespace Wodsoft.Web
         public static DependencyProperty RegisterAttached(string name, Type propertyType, Type ownerType, PropertyMetadata typeMetadata, ValidateValueCallback validateValueCallback)
         {
             DependencyProperty dp = RegisterCommon(name, propertyType, ownerType, typeMetadata, validateValueCallback);
-            if (propertyType.IsValueType && dp.DefaultMetadata.DefaultValue == null)
+            if (propertyType.GetTypeInfo().IsValueType && dp.DefaultMetadata.DefaultValue == null)
                 dp.DefaultMetadata.DefaultValue = Activator.CreateInstance(propertyType);
             dp.ReadOnly = false;
             return dp;

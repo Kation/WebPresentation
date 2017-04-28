@@ -5,8 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Markup;
+using Microsoft.Extensions.DependencyModel;
 using System.Xaml;
+using System.Windows.Markup;
 using System.Xml;
 
 namespace Wodsoft.Web.Xaml
@@ -33,15 +34,27 @@ namespace Wodsoft.Web.Xaml
             return Load(new XamlXmlReader(filename, GetSchemaContext()));
         }
 
+        private static Assembly[] _Assemblies;
+
         private XamlSchemaContext GetSchemaContext()
         {
-            //List<Assembly> assemblies = new List<Assembly>
-            //{
-            //    Assembly.Load("Wodsoft.WebPresentation.Core"),
-            //    Assembly.Load("Wodsoft.WebPresentation")
-            //};
-            //AppDomain.CurrentDomain.SetupInformation.PrivateBinPath
-            XamlSchemaContext schemaContext = new XamlSchemaContext(AppDomain.CurrentDomain.GetAssemblies());
+            if (_Assemblies == null)
+            {
+                _Assemblies = DependencyContext.Default.RuntimeLibraries.Select(s => s.Name)
+                    .Select(t =>
+                    {
+                        try
+                        {
+                            return Assembly.Load(new AssemblyName(t));
+                        }
+                        catch (Exception)
+                        {
+
+                            return null;
+                        }
+                    }).Where(t => t != null).ToArray();
+            }
+            XamlSchemaContext schemaContext = new XamlSchemaContext(_Assemblies);
             return schemaContext;
         }
 

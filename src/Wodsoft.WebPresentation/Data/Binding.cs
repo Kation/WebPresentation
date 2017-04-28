@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace Wodsoft.Web.Data
 {
@@ -20,6 +21,7 @@ namespace Wodsoft.Web.Data
 
         public object Source { get; set; }
 
+        [ConstructorArgument("path")]
         public string Path { get; set; }
 
         protected internal override BindingExpressionBase GetExpression(DependencyObject d, DependencyProperty dp, IServiceProvider serviceProvider)

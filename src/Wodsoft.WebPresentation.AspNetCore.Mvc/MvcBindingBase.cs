@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
 
-namespace Wodsoft.Web.Mvc
+namespace Wodsoft.Web.AspNetCore.Mvc
 {
     public abstract class MvcBindingBase : MarkupExtension
     {

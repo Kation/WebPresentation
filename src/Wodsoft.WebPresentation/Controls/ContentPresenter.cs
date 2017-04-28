@@ -20,33 +20,29 @@ namespace Wodsoft.Web.Controls
                 else
                     context.Writer.WriteString(Content.ToString());
             }
-            else if (_TemplatedParent != null)
+            UIElement element = LogicalTreeHelper.FindLogicalRoot(this);
+            if (element is FrameworkElement)
             {
-                FrameworkElement templatedParent = null;
-                Visual visual = this;
-                while (visual != null)
+                FrameworkElement fe = (FrameworkElement)element;
+                element = fe._TemplatedParent;
+            }
+            else
+            {
+                element = VisualHelper.GetParent(element) as UIElement;
+            }
+            if (element != null)
+            {
+                if (element is Panel)
                 {
-                    if (visual is FrameworkElement)
+                    Panel panel = (Panel)element;
+                    foreach (UIElement ui in panel.Children)
                     {
-                        templatedParent = ((FrameworkElement)visual)._TemplatedParent;
-                        if (templatedParent != null)
-                            break;
-                    }
-                    visual = visual.VisualParent;
-                }
-                if (templatedParent == null)
-                    return;
-                if (templatedParent is Panel)
-                {
-                    Panel panel = (Panel)templatedParent;
-                    foreach(var element in panel.Children)
-                    {
-                        element.OnRender(context);
+                        ui.OnRender(context);
                     }
                 }
                 else
                 {
-                    var obj = templatedParent.GetValue(ContentControl.ContentProperty);
+                    var obj = element.GetValue(ContentControl.ContentProperty);
                     if (obj != null)
                     {
                         if (obj is UIElement)

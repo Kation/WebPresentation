@@ -7,43 +7,42 @@ using System.Threading.Tasks;
 
 namespace Wodsoft.Web
 {
-    public abstract class VisualCollection<T> : Collection<T>
-        where T : Visual
+    public sealed class VisualCollection : Collection<Visual>
     {
-        protected Visual Parent { get; private set; }
+        private Visual _Parent;
 
-        protected VisualCollection(Visual parent)
+        public VisualCollection(Visual parent)
         {
-            Parent = parent;
+            _Parent = parent;
         }
 
         protected override void ClearItems()
         {
             foreach (var item in this)
-                Parent.RemoveVisualChild(item);
+                _Parent.InternalRemoveVisualChild(item);
             base.ClearItems();
         }
 
-        protected override void InsertItem(int index, T item)
+        protected override void InsertItem(int index, Visual item)
         {
             if (item == null)
                 return;
-            Parent.AddVisualChild(item);
+            _Parent.InternalAddVisualChild(item);
             base.InsertItem(index, item);
         }
 
         protected override void RemoveItem(int index)
         {
             Visual item = this[index];
-            Parent.RemoveVisualChild(item);
+            _Parent.InternalRemoveVisualChild(item);
             base.RemoveItem(index);
         }
 
-        protected override void SetItem(int index, T item)
+        protected override void SetItem(int index, Visual item)
         {
             Visual old = this[index];
-            Parent.RemoveVisualChild(old);
-            Parent.AddVisualChild(item);
+            _Parent.InternalRemoveVisualChild(old);
+            _Parent.InternalAddVisualChild(item);
             base.SetItem(index, item);
         }
     }

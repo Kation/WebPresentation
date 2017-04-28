@@ -5,13 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.FileProviders;
+using Wodsoft.Web.Xaml;
 
-namespace Wodsoft.Web.Mvc
+namespace Wodsoft.Web.AspNetCore.Mvc
 {
     public class WebPresentationViewEngine : IViewEngine
     {
@@ -35,36 +35,25 @@ namespace Wodsoft.Web.Mvc
                 return file;
             return null;
         }
-
-        private WebPresentationView GetView(IFileInfo file)
-        {
-            if (_Views.ContainsKey(file.PhysicalPath))
-                return _Views[file.PhysicalPath];
-            using (Stream stream = file.CreateReadStream())
-            {
-                try
-                {
-                    Wodsoft.Web.Xaml.XamlReader reader = new Xaml.XamlReader();
-                    FrameworkElement element = reader.Load(stream) as FrameworkElement;
-                    if (element == null)
-                        return null;
-                    WebPresentationView view = new WebPresentationView(element);
-                    _Views.Add(file.PhysicalPath, view);
-                    return view;
-                }
-                catch (Exception ex)
-                {
-                    return null;
-                }
-            }
-        }
-
+        
         public ViewEngineResult FindView(ActionContext context, string viewName, bool isMainPage)
         {
             IFileInfo file = GetViewPath(context, context.RouteData.Values["controller"] as string, viewName, context.RouteData.Values["area"] as string);
             if (file == null)
                 return null;
-            WebPresentationView view = GetView(file);
+
+            if (_Views.ContainsKey(file.PhysicalPath))
+                return ViewEngineResult.Found("WebPresentation", _Views[file.PhysicalPath]);
+            WebPresentationView view;
+            using (Stream stream = file.CreateReadStream())
+            {
+                XamlReader reader = new XamlReader();
+                FrameworkElement element = reader.Load(stream) as FrameworkElement;
+                if (element == null)
+                    return ViewEngineResult.NotFound(viewName, new string[0]);
+                view = new WebPresentationView((Application)context.HttpContext.Items["WebPresentation_Root"], element);
+                _Views.Add(file.PhysicalPath, view);
+            }
             if (view == null)
                 return null;
             return ViewEngineResult.Found("WebPresentation", view);
@@ -72,7 +61,7 @@ namespace Wodsoft.Web.Mvc
 
         public ViewEngineResult GetView(string executingFilePath, string viewPath, bool isMainPage)
         {
-            throw new NotImplementedException();
+            return ViewEngineResult.NotFound(viewPath, new string[0]);
         }
     }
 }

@@ -14,15 +14,11 @@ namespace Wodsoft.Web
         public Application()
         {
             Resources = new ResourceDictionary();
-            Current = this;
         }
-
-        public static Application Current { get; private set; }
-
+        
         [Browsable(false)]
         public ResourceDictionary Resources { get; set; }
-
-        [ThreadStatic]
+        
         private FrameworkElement _Root;
         [Browsable(false)]
         public FrameworkElement Root
@@ -37,8 +33,7 @@ namespace Wodsoft.Web
                     _Root.Resources.MergedDictionaries.Add(Resources);
             }
         }
-
-        [ThreadStatic]
+        
         private IDictionary _Properties;
         [Browsable(false)]
         public IDictionary Properties

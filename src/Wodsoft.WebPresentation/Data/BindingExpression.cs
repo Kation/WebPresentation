@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
+using System.Reflection;
 
 namespace Wodsoft.Web.Data
 {
@@ -27,7 +28,7 @@ namespace Wodsoft.Web.Data
                     {
                         if (element.DataContext != null)
                             return GetValueCore(element.DataContext);
-                        element = element.VisualParent as FrameworkElement;
+                        element = VisualHelper.GetParent(element) as FrameworkElement;
                     }
                     return null;
                 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 using System.Xaml;
 using Wodsoft.Web.Data;
 
@@ -20,6 +21,7 @@ namespace Wodsoft.Web
             Property = property;
         }
 
+        [ConstructorArgument("property")]
         public string Property { get; set; }
 
         protected internal override BindingExpressionBase GetExpression(DependencyObject d, DependencyProperty dp, IServiceProvider serviceProvider)

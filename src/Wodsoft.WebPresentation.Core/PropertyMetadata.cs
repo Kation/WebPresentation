@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,17 +45,17 @@ namespace Wodsoft.Web
             }
         }
 
-        public override void Freeze()
-        {
-            var trace = new System.Diagnostics.StackTrace();
-            var frame = trace.GetFrame(1);
-            var method = frame.GetMethod();
-            if (method == null)
-                throw new NotSupportedException();
-            if (method.DeclaringType != typeof(PropertyMetadata))
-                throw new NotSupportedException();
-            base.Freeze();
-        }
+        //public override void Freeze()
+        //{
+        //    //var trace = new System.Diagnostics.StackTrace();
+        //    //var frame = trace.GetFrame(1);
+        //    //var method = frame.GetMethod();
+        //    //if (method == null)
+        //    //    throw new NotSupportedException();
+        //    //if (method.DeclaringType != typeof(PropertyMetadata))
+        //    //    throw new NotSupportedException();
+        //    //base.Freeze();
+        //}
 
         private PropertyChangedCallback _PropertyChangedCallback;
         public PropertyChangedCallback PropertyChangedCallback
@@ -104,7 +105,7 @@ namespace Wodsoft.Web
                 return;
             if (_DefaultValue == null)
             {
-                if (targetType.IsValueType)
+                if (targetType.GetTypeInfo().IsValueType)
                     _DefaultValue = Activator.CreateInstance(targetType);
             }
             Freeze();

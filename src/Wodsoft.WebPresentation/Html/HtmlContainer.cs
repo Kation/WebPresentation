@@ -10,15 +10,15 @@ namespace Wodsoft.Web.Html
     {
         public HtmlContainer()
         {
-            _Children = new HtmlElementCollection(this);
+            _Children = new UIElementCollection(this);
         }
 
-        private HtmlElementCollection _Children;
-        public HtmlElementCollection Children { get { return _Children; } }
+        private UIElementCollection _Children;
+        public UIElementCollection Children { get { return _Children; } }
 
-        protected internal override int VisualChildrenCount { get { return _Children.Count; } }
+        protected override int VisualChildrenCount { get { return _Children.Count; } }
 
-        protected internal override Visual GetVisualChild(int index)
+        protected override Visual GetVisualChild(int index)
         {
             return _Children[index];
         }
@@ -26,7 +26,7 @@ namespace Wodsoft.Web.Html
         protected override void OnRenderContent(RenderContext context)
         {
             base.OnRenderContent(context);
-            foreach (var item in Children)
+            foreach (UIElement item in Children)
                 item.OnRender(context);
         }
     }

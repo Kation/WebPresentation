@@ -11,13 +11,49 @@ namespace Wodsoft.Web.Html
     [ContentProperty("Body")]
     public class HtmlPage : HtmlElement
     {
-        public static readonly DependencyProperty HeadProperty = DependencyProperty.Register("Head", typeof(HtmlHead), typeof(HtmlPage), new PropertyMetadata(Visual.OnVisualChildPropertyChanged));
+        public static readonly DependencyProperty HeadProperty = DependencyProperty.Register("Head", typeof(HtmlHead), typeof(HtmlPage), new PropertyMetadata(OnHeadPropertyChanged));
         public HtmlHead Head { get { return (HtmlHead)GetValue(HeadProperty); } set { SetValue(HeadProperty, value); } }
+        private static void OnHeadPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            HtmlPage control = (HtmlPage)d;
+            if (e.OldValue != null)
+            {
+                if (e.OldValue is UIElement)
+                {
+                    control.RemoveLogicalChild((UIElement)e.OldValue);
+                }
+            }
+            if (e.NewValue != null)
+            {
+                if (e.NewValue is UIElement)
+                {
+                    control.AddLogicalChild((UIElement)e.NewValue);
+                }
+            }
+        }
 
-        public static readonly DependencyProperty BodyProperty = DependencyProperty.Register("Body", typeof(HtmlBody), typeof(HtmlPage), new PropertyMetadata(new HtmlBody(), Visual.OnVisualChildPropertyChanged));
+        public static readonly DependencyProperty BodyProperty = DependencyProperty.Register("Body", typeof(HtmlBody), typeof(HtmlPage), new PropertyMetadata(new HtmlBody(), OnBodyPropertyChanged));
         public HtmlBody Body { get { return (HtmlBody)GetValue(BodyProperty); } set { SetValue(BodyProperty, value); } }
+        private static void OnBodyPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            HtmlPage control = (HtmlPage)d;
+            if (e.OldValue != null)
+            {
+                if (e.OldValue is UIElement)
+                {
+                    control.RemoveLogicalChild((UIElement)e.OldValue);
+                }
+            }
+            if (e.NewValue != null)
+            {
+                if (e.NewValue is UIElement)
+                {
+                    control.AddLogicalChild((UIElement)e.NewValue);
+                }
+            }
+        }
 
-        protected internal override int VisualChildrenCount
+        protected override int VisualChildrenCount
         {
             get
             {
@@ -30,7 +66,7 @@ namespace Wodsoft.Web.Html
             }
         }
 
-        protected internal override Visual GetVisualChild(int index)
+        protected override Visual GetVisualChild(int index)
         {
             if (index == 0)
             {

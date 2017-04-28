@@ -10,6 +10,5 @@ namespace Wodsoft.Web.Controls
     {
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(Visualization));
         public string Title { get { return (string)GetValue(TitleProperty); } set { SetValue(TitleProperty, value); } }
-
     }
 }

@@ -8,14 +8,19 @@ namespace Wodsoft.Web
 {
     public static class VisualHelper
     {
-        public static int GetVisualChildrenCount(Visual visual)
+        public static int GetChildrenCount(Visual visual)
         {
-            return visual.VisualChildrenCount;
+            return visual.InternalVisualChildrenCount;
         }
 
-        public static Visual GetVisualChild(Visual visual , int index)
+        public static Visual GetChild(Visual visual , int index)
         {
-            return visual.GetVisualChild(index);
+            return visual.InternalGetVisualChild(index);
+        }
+
+        public static Visual GetParent(Visual visual)
+        {
+            return visual.InternalVisualParent;
         }
     }
 }

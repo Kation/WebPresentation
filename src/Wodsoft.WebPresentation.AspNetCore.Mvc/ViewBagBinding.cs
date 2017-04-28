@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Wodsoft.Web.Data;
 
-namespace Wodsoft.Web.Mvc
+namespace Wodsoft.Web.AspNetCore.Mvc
 {
     public class ViewBagBinding : BindingBase
     {

@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Wodsoft.Web.Data;
+using System.Reflection;
 
-namespace Wodsoft.Web.Mvc
+namespace Wodsoft.Web.AspNetCore.Mvc
 {
     public class ViewBagBindingExpression : BindingExpressionBase
     {
@@ -23,9 +24,9 @@ namespace Wodsoft.Web.Mvc
 
         public override object GetValueCore(DependencyObject d, DependencyProperty dp)
         {
-            if (Application.Current == null)
-                throw new NotSupportedException("Web application not found.");
-            ViewContext context =  Application.Current.Properties["Context"] as ViewContext;
+            //if (Application.Current == null)
+            //    throw new NotSupportedException("Web application not found.");
+            ViewContext context = null; //Application.Current.Properties["Context"] as ViewContext;
 
             object value = context.ViewData[Name];
             if (value == null)

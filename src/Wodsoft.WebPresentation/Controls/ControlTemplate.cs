@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Markup;
 
 namespace Wodsoft.Web.Controls
@@ -27,7 +28,7 @@ namespace Wodsoft.Web.Controls
         {
             if (templatedParent == null)
                 throw new ArgumentNullException("templatedParent");
-            if (_TargetType != null && !_TargetType.IsInstanceOfType(templatedParent))
+            if (_TargetType != null && !_TargetType.GetTypeInfo().IsInstanceOfType(templatedParent))
                 throw new ArgumentException("Template target type mismatch.");
         }
     }

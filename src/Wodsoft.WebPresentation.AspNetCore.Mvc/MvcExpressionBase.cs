@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wodsoft.Web.Mvc
+namespace Wodsoft.Web.AspNetCore.Mvc
 {
     public abstract class MvcExpressionBase : Expression
     {

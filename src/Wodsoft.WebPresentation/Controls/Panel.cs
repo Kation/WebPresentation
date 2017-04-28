@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,5 +18,7 @@ namespace Wodsoft.Web.Controls
 
         private UIElementCollection _Children;
         public UIElementCollection Children { get { return _Children; } }
+
+        protected internal override IEnumerator<UIElement> LogicalChildren { get { return Children.GetEnumerator(); } }
     }
 }

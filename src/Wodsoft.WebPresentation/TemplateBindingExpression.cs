@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Wodsoft.Web.Data;
@@ -24,7 +25,7 @@ namespace Wodsoft.Web
         {
             if (Root._TemplatedParent == null)
                 throw new NotSupportedException("Template content not apply to any element.");
-            FrameworkElement element = Root._TemplatedParent;
+            UIElement element = Root._TemplatedParent;
             if (Property == null)
                 return element;
             if (Property.Contains("."))

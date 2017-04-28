@@ -52,7 +52,7 @@ namespace Wodsoft.Web.Xaml
         public override void WriteStartMember(XamlMember property)
         {
             //判断是否是依赖类型
-            if (property.DeclaringType != null && property.DeclaringType.UnderlyingType.IsSubclassOf(typeof(DependencyObject)))
+            if (property.DeclaringType != null && typeof(DependencyObject).IsAssignableFrom(property.DeclaringType.UnderlyingType))
             {
                 //如果是属性
                 if (property.UnderlyingMember is PropertyInfo)
@@ -74,7 +74,7 @@ namespace Wodsoft.Web.Xaml
             }
             base.WriteStartMember(property);
         }
-
+        
         public override void WriteStartObject(XamlType xamlType)
         {
             base.WriteStartObject(xamlType);

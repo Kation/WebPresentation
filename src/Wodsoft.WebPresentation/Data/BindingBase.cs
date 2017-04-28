@@ -7,8 +7,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
-using System.Xaml;
-
 namespace Wodsoft.Web.Data
 {
     public abstract class BindingBase : MarkupExtension

@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Markup;
 using System.Xaml;
+using System.Windows.Markup;
 
 namespace Wodsoft.Web
 {
@@ -64,6 +64,7 @@ namespace Wodsoft.Web
                 return;
             child._TemplatedParent = element;
             element._TemplateChild = child;
+            element.InternalAddVisualChild(child);
         }
 
         #region NameScope

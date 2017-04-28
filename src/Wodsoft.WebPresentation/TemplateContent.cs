@@ -4,8 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Markup;
 using System.Xaml;
+using System.Windows.Markup;
 
 namespace Wodsoft.Web
 {
@@ -21,8 +21,8 @@ namespace Wodsoft.Web
                 throw new ArgumentNullException("xamlReader");
             _SchemaContext = xamlReader.SchemaContext;
             _Cache = new MemoryStream();
+            //xamlReader = xamlReader.ReadSubtree();
             XamlXmlWriter writer = new XamlXmlWriter(_Cache, xamlReader.SchemaContext);
-            //writer.WriteNamespace(xamlReader.Namespace);
             while (xamlReader.Read())
             {
                 writer.WriteNode(xamlReader);

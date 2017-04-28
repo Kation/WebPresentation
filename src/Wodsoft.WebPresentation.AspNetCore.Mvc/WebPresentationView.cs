@@ -6,25 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Wodsoft.Web.Mvc
+namespace Wodsoft.Web.AspNetCore.Mvc
 {
     public class WebPresentationView : IView
     {
         private FrameworkElement _Element;
 
-        public WebPresentationView(FrameworkElement element)
+        public WebPresentationView(Application application, FrameworkElement element)
         {
             if (element == null)
                 throw new ArgumentException("element");
             _Element = element;
-            Application.Current.Root = element;
+            application.Root = element;
         }
 
         public string Path { get; private set; }
 
         public Task RenderAsync(ViewContext context)
         {
-            Application.Current.Properties["Context"] = context;
+            //Application.Current.Properties["Context"] = context;
             _Element.DataContext = context.ViewData.Model;
             _Element.Render(context.Writer);
             return Task.FromResult(0);

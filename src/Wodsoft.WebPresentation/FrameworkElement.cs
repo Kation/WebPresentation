@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,6 @@ namespace Wodsoft.Web
     public class FrameworkElement : UIElement, IHaveResources
     {
         private ResourceDictionary _Resources;
-        internal FrameworkElement _TemplateChild;
-        internal FrameworkElement _TemplatedParent;
         private Style _StyleCache;
         private FrameworkTemplate _Template;
 
@@ -109,7 +108,10 @@ namespace Wodsoft.Web
 
         #region Template
 
-        protected internal override int VisualChildrenCount
+        internal FrameworkElement _TemplateChild;
+        internal FrameworkElement _TemplatedParent;
+
+        protected override int VisualChildrenCount
         {
             get
             {
@@ -117,7 +119,7 @@ namespace Wodsoft.Web
             }
         }
 
-        protected internal override Visual GetVisualChild(int index)
+        protected override Visual GetVisualChild(int index)
         {
             if (_TemplateChild == null || index != 0)
                 throw new ArgumentOutOfRangeException("index");
@@ -132,17 +134,17 @@ namespace Wodsoft.Web
         {
             if (_StyleCache == null)
             {
-                Visual visual = this;
-                while(visual != null)
+                UIElement element = this;
+                while (element != null)
                 {
-                    IHaveResources resourceContainer = visual as IHaveResources;
+                    IHaveResources resourceContainer = element as IHaveResources;
                     if (resourceContainer != null && resourceContainer.Resources.Count > 0)
                     {
                         _StyleCache = resourceContainer.Resources[this.GetType()] as Style;
                         if (_StyleCache != null)
                             break;
                     }
-                    visual = visual.VisualParent;
+                    element = element.Parent ?? (element as FrameworkElement)?.TemplatedParent;
                 }
             }
             if (ElementTemplate == null || ElementTemplate == _Template)
@@ -154,5 +156,6 @@ namespace Wodsoft.Web
         protected virtual void OnApplyTemplate() { }
 
         #endregion
+
     }
 }

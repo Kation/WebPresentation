@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Windows.Markup;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -17,3 +18,12 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("3e62557b-e91a-4526-8614-d8c4f9f8f555")]
+
+
+[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation/svg", "Wodsoft.Web")]
+[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation/svg", "Wodsoft.Web.Controls")]
+[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation/svg", "Wodsoft.Web.Media")]
+[assembly: XmlnsPrefix("http://schemas.wodsoft.com/web/presentation/svg", "svg")]
+
+[assembly: XmlnsDefinition("http://schemas.wodsoft.com/web/presentation/html", "Wodsoft.Web.Html")]
+[assembly: XmlnsPrefix("http://schemas.wodsoft.com/web/presentation/html", "html")]

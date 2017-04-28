@@ -206,7 +206,7 @@ namespace Wodsoft.Web
                         break;
                     }
                     if (obj is Visual)
-                        obj = ((Visual)obj).VisualParent;
+                        obj = VisualHelper.GetParent((Visual)obj);
                     else
                         break;
                 }

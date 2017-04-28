@@ -1,6 +1,7 @@
-﻿using System;
+﻿using System.ComponentModel;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+//using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Wodsoft.Web
 {
+    [TypeConverter(typeof(PointTypeConverter))]
     public struct Point
     {
         public Point(double x, double y) : this()

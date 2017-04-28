@@ -12,13 +12,13 @@ namespace Wodsoft.Web.Html
     {
         public HtmlGroup()
         {
-            _Children = new HtmlSvgElementCollection(this);
+            _Children = new UIElementCollection(this);
         }
 
         public override string Tag { get { return "g"; } }
 
-        private HtmlSvgElementCollection _Children;
-        public HtmlSvgElementCollection Children { get { return _Children; } }
+        private UIElementCollection _Children;
+        public UIElementCollection Children { get { return _Children; } }
 
         protected override int VisualChildrenCount { get { return _Children.Count; } }
 
@@ -30,7 +30,7 @@ namespace Wodsoft.Web.Html
         protected override void OnRenderContent(RenderContext context)
         {
             base.OnRenderContent(context);
-            foreach (var item in Children)
+            foreach (UIElement item in Children)
                 item.OnRender(context);
         }
     }
