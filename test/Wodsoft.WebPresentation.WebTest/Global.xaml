@@ -52,6 +52,22 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style TargetType="{x:Type svg:Arc}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type svg:Arc}">
+                            <ControlTemplate.Resources>
+                                <ResourceDictionary>
+                                    <svg:ArcToPathValueConverter x:Key="ArcConverter" />
+                                </ResourceDictionary>
+                            </ControlTemplate.Resources>
+                            <ContentControl>
+                                <html:HtmlPath Data="{TemplateBinding Converter={StaticResources ArcConverter}}" Fill="{TemplateBinding Fill}" Stroke="{TemplateBinding Stroke}" StrokeWidth="{TemplateBinding StrokeWidth}" />
+                            </ContentControl>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

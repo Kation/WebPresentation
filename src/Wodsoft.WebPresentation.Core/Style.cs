@@ -22,6 +22,7 @@ namespace Wodsoft.Web
         [Ambient]
         public Type TargetType { get; set; }
 
+        [Ambient]
         public ResourceDictionary Resources
         {
             get
@@ -34,6 +35,22 @@ namespace Wodsoft.Web
             {
                 _Resources = value;
             }
+        }
+
+        [Ambient]
+        public Style BasedOn { get; set; }
+        
+        public ResourceDictionary FindResourceDictionary(object resourceKey)
+        {
+            if (_Resources != null && this._Resources.Contains(resourceKey))
+            {
+                return _Resources;
+            }
+            if (BasedOn != null)
+            {
+                return BasedOn.FindResourceDictionary(resourceKey);
+            }
+            return null;
         }
 
         public SetterCollection Setters { get { return _Setters; } }

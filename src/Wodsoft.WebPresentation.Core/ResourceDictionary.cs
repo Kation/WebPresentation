@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
 using System.ComponentModel;
+using System.IO;
 
 namespace Wodsoft.Web
 {
@@ -15,6 +16,7 @@ namespace Wodsoft.Web
     {
         private Dictionary<object, object> _Res;
         private NameScope _NameScope;
+        private Uri _Source;
 
         public ResourceDictionary()
         {
@@ -26,7 +28,28 @@ namespace Wodsoft.Web
         private Collection<ResourceDictionary> _MergedDictionaries;
         public Collection<ResourceDictionary> MergedDictionaries { get { return _MergedDictionaries; } }
 
-        public Uri Source { get; set; }
+        public Uri Source
+        {
+            get
+            {
+                return _Source;
+            }
+            set
+            {
+                if (value == null || string.IsNullOrWhiteSpace(value.OriginalString))
+                    throw new ArgumentException("地址为空。");
+                var stream = File.Open(value.OriginalString, FileMode.Open, FileAccess.Read, FileShare.Read);
+                Xaml.XamlReader reader = new Xaml.XamlReader();
+                ResourceDictionary res = reader.Load(stream) as ResourceDictionary;
+                if (res != null)
+                {
+                    foreach (var obj in res._Res)
+                        _Res.Add(obj.Key, obj.Value);
+                    foreach (var obj in res._MergedDictionaries)
+                        _MergedDictionaries.Add(obj);
+                }
+            }
+        }
 
         public void Add(object key, object value)
         {

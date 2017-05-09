@@ -12,7 +12,8 @@ namespace Wodsoft.Web
     {
         public override object Load(XamlReader xamlReader, IServiceProvider serviceProvider)
         {
-            return new TemplateContent(xamlReader);
+            IXamlObjectWriterFactory factory = (IXamlObjectWriterFactory)serviceProvider.GetService(typeof(IXamlObjectWriterFactory));
+            return new TemplateContent(xamlReader, factory);
         }
 
         public override XamlReader Save(object value, IServiceProvider serviceProvider)

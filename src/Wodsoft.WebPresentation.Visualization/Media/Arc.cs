@@ -17,7 +17,10 @@ namespace Wodsoft.Web.Media
         public static readonly DependencyProperty InnerRadiusProperty = DependencyProperty.Register("InnerRadius", typeof(double), typeof(Arc));
         public double InnerRadius { get { return (double)GetValue(InnerRadiusProperty); } set { SetValue(InnerRadiusProperty, value); } }
 
-        public static readonly DependencyProperty AngleProperty = DependencyProperty.Register("Angle", typeof(double), typeof(Arc));
-        public double Angle { get { return (double)GetValue(AngleProperty); } set { SetValue(AngleProperty, value); } }
+        public static readonly DependencyProperty StartAngleProperty = DependencyProperty.Register("StartAngle", typeof(double), typeof(Arc));
+        public double StartAngle { get { return (double)GetValue(StartAngleProperty); } set { SetValue(StartAngleProperty, value); } }
+
+        public static readonly DependencyProperty EndAngleProperty = DependencyProperty.Register("EndAngle", typeof(double), typeof(Arc));
+        public double EndAngle { get { return (double)GetValue(EndAngleProperty); } set { SetValue(EndAngleProperty, value); } }
     }
 }

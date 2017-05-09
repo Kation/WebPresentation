@@ -14,33 +14,37 @@ namespace Wodsoft.Web
     {
         private MemoryStream _Cache;
         private XamlSchemaContext _SchemaContext;
+        private IXamlObjectWriterFactory _Factory;
+        private List<TemplateContentFrame> _Frames;
 
-        public TemplateContent(XamlReader xamlReader)
+        public TemplateContent(XamlReader xamlReader, IXamlObjectWriterFactory factory)
         {
             if (xamlReader == null)
                 throw new ArgumentNullException("xamlReader");
+            _Factory = factory;
             _SchemaContext = xamlReader.SchemaContext;
             _Cache = new MemoryStream();
+            _Frames = new List<Web.TemplateContentFrame>();
             //xamlReader = xamlReader.ReadSubtree();
-            XamlXmlWriter writer = new XamlXmlWriter(_Cache, xamlReader.SchemaContext);
             while (xamlReader.Read())
             {
-                writer.WriteNode(xamlReader);
+                _Frames.Add(new Web.TemplateContentFrame(xamlReader));
             }
-            writer.Close();
+            //_Reader = xamlReader;//.ReadSubtree();
         }
 
         public object LoadContent()
         {
             _Cache.Position = 0;
-            XamlReader reader = new XamlXmlReader(_Cache, _SchemaContext);
-            XamlObjectWriter writer = new Wodsoft.Web.Xaml.ObjectWriter(reader.SchemaContext);
-            while (reader.Read())
+            //XamlReader reader = _Reader; //new XamlXmlReader(_Cache, _SchemaContext);
+            var setting = _Factory.GetParentSettings();
+            XamlObjectWriter writer = _Factory.GetXamlObjectWriter(setting);
+            foreach (var frame in _Frames)
             {
-                writer.WriteNode(reader);
+                frame.Write(writer);
             }
-            writer.Close();
-            reader.Close();
+            //writer.Close();
+            //reader.Close();
             return writer.Result;
         }
     }

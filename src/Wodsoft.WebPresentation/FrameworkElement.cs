@@ -33,6 +33,10 @@ namespace Wodsoft.Web
         public static readonly DependencyProperty TooltipProperty = DependencyProperty.Register("Tooltip", typeof(string), typeof(FrameworkElement));
         public string Tooltip { get { return (string)GetValue(TooltipProperty); } set { SetValue(TooltipProperty, value); } }
 
+        public static readonly DependencyProperty MarginProperty = DependencyProperty.Register("Margin", typeof(Thickness), typeof(FrameworkElement));
+        public Thickness Margin { get { return (Thickness)GetValue(MarginProperty); }set { SetValue(MarginProperty, value); } }
+
+        [Ambient]
         public ResourceDictionary Resources
         {
             get

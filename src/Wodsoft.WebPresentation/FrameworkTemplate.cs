@@ -10,7 +10,7 @@ using System.Windows.Markup;
 namespace Wodsoft.Web
 {
     [ContentProperty("Template")]
-    public abstract class FrameworkTemplate : INameScope, ISealable, IQueryAmbient
+    public abstract class FrameworkTemplate : INameScope, ISealable, IHaveResources, IQueryAmbient
     {
         private NameScope _NameScope;
         private bool _IsSealed;
@@ -40,6 +40,7 @@ namespace Wodsoft.Web
             }
         }
 
+        [Ambient]
         public ResourceDictionary Resources
         {
             get
@@ -62,6 +63,7 @@ namespace Wodsoft.Web
             FrameworkElement child = Template.LoadContent() as FrameworkElement;
             if (child == null)
                 return;
+            child.Resources.MergedDictionaries.Add(Resources);
             child._TemplatedParent = element;
             element._TemplateChild = child;
             element.InternalAddVisualChild(child);

@@ -14,6 +14,8 @@ namespace Wodsoft.Web.Xaml
 
         public ObjectWriter(XamlSchemaContext schemaContext) : base(schemaContext) { }
 
+        public ObjectWriter(XamlSchemaContext schemaContext, XamlObjectWriterSettings setting) : base(schemaContext, setting) { }
+
         object _Instance;
         protected override void OnBeforeProperties(object value)
         {

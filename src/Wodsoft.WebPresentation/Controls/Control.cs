@@ -11,21 +11,18 @@ namespace Wodsoft.Web.Controls
         public static readonly DependencyProperty TemplateProperty = DependencyProperty.Register("Template", typeof(ControlTemplate), typeof(Control));
         public ControlTemplate Template { get { return (ControlTemplate)GetValue(TemplateProperty); } set { SetValue(TemplateProperty, value); } }
 
+        public static readonly DependencyProperty PaddingProperty = DependencyProperty.Register("Padding", typeof(Thickness), typeof(FrameworkElement));
+        public Thickness Padding { get { return (Thickness)GetValue(PaddingProperty); } set { SetValue(PaddingProperty, value); } }
+
         public static readonly DependencyProperty TabIndexProperty = DependencyProperty.Register("TabIndex", typeof(int), typeof(Control), new PropertyMetadata(int.MaxValue));
         public int TabIndex { get { return (int)GetValue(TabIndexProperty); } set { SetValue(TabIndexProperty, value); } }
-        
+
         public static readonly DependencyProperty WidthProperty = DependencyProperty.Register("Width", typeof(double), typeof(Control));
         public double Width { get { return (double)GetValue(WidthProperty); } set { SetValue(WidthProperty, value); } }
 
         public static readonly DependencyProperty HeightProperty = DependencyProperty.Register("Height", typeof(double), typeof(Control));
         public double Height { get { return (double)GetValue(HeightProperty); } set { SetValue(HeightProperty, value); } }
 
-        protected override FrameworkTemplate ElementTemplate
-        {
-            get
-            {
-                return Template;
-            }
-        }
+        protected override FrameworkTemplate ElementTemplate { get { return Template; } }
     }
 }

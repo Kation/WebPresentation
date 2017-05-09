@@ -10,43 +10,27 @@ namespace Wodsoft.Web
 {
     public class TemplateBindingExpression : BindingExpressionBase
     {
-        public TemplateBindingExpression(FrameworkElement root)
+        public TemplateBindingExpression(DependencyProperty property)
         {
-            if (root == null)
-                throw new ArgumentNullException("root");
-            Root = root;
+            Property = property;
         }
-
-        public FrameworkElement Root { get; private set; }
-
-        public string Property { get; set; }
+        
+        public DependencyProperty Property { get; set; }
 
         public override object GetValueCore(DependencyObject d, DependencyProperty dp)
         {
-            if (Root._TemplatedParent == null)
-                throw new NotSupportedException("Template content not apply to any element.");
-            UIElement element = Root._TemplatedParent;
+            UIElement element = d as UIElement;
+            if (element == null)
+                return null;
+            FrameworkElement fe = LogicalTreeHelper.FindLogicalRoot(element) as FrameworkElement;
+            if (fe == null || fe._TemplatedParent == null)
+                return null;
+            object value;
             if (Property == null)
-                return element;
-            if (Property.Contains("."))
-            {
-                string[] dop = Property.Split('.');
-                if (dop.Length != 2)
-                    throw new ArgumentException("Property invalid.");
-                Type ownerType = Type.GetType(dop[0]);
-                if (ownerType == null)
-                    return null;
-                DependencyProperty property = DependencyProperty.FromName(dop[1], ownerType);
-                return element.GetValue(property);
-            }
-            else
-            {
-                var propertyInfo = element.GetType().GetProperty(Property);
-                if (propertyInfo == null)
-                    return null;
-                DependencyProperty property = DependencyProperty.FromName(Property, propertyInfo.DeclaringType);
-                return element.GetValue(property);
-            }
+                value = fe._TemplatedParent;
+            else 
+                value = fe._TemplatedParent.GetValue(Property);
+            return value;
         }
     }
 }

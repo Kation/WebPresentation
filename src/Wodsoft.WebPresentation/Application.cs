@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace Wodsoft.Web
 {
@@ -17,6 +18,7 @@ namespace Wodsoft.Web
         }
         
         [Browsable(false)]
+        [Ambient]
         public ResourceDictionary Resources { get; set; }
         
         private FrameworkElement _Root;
