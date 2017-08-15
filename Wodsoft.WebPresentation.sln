@@ -1,11 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F4878CB8-04DD-46F4-B02C-6E70A2BCBC6E}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -13,21 +12,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8907DED9-C62
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FA892EAF-612B-437D-91CB-E92C63B1966E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.Core", "src\Wodsoft.WebPresentation.Core\Wodsoft.WebPresentation.Core.xproj", "{05A7E736-0D46-409C-B326-56C22B129644}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.Core", "src\Wodsoft.WebPresentation.Core\Wodsoft.WebPresentation.Core.csproj", "{05A7E736-0D46-409C-B326-56C22B129644}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation", "src\Wodsoft.WebPresentation\Wodsoft.WebPresentation.xproj", "{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation", "src\Wodsoft.WebPresentation\Wodsoft.WebPresentation.csproj", "{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.AspNetCore", "src\Wodsoft.WebPresentation.AspNetCore\Wodsoft.WebPresentation.AspNetCore.xproj", "{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.AspNetCore", "src\Wodsoft.WebPresentation.AspNetCore\Wodsoft.WebPresentation.AspNetCore.csproj", "{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.AspNetCore.Mvc", "src\Wodsoft.WebPresentation.AspNetCore.Mvc\Wodsoft.WebPresentation.AspNetCore.Mvc.xproj", "{E23DF653-67BD-4D18-922C-4745850D94D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.AspNetCore.Mvc", "src\Wodsoft.WebPresentation.AspNetCore.Mvc\Wodsoft.WebPresentation.AspNetCore.Mvc.csproj", "{E23DF653-67BD-4D18-922C-4745850D94D9}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.Visualization", "src\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.xproj", "{3E62557B-E91A-4526-8614-D8C4F9F8F555}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.Visualization", "src\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.csproj", "{3E62557B-E91A-4526-8614-D8C4F9F8F555}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.WebTest", "test\Wodsoft.WebPresentation.WebTest\Wodsoft.WebPresentation.WebTest.xproj", "{796D7D06-B4B0-4996-BEFB-4479A350E073}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.WebTest", "test\Wodsoft.WebPresentation.WebTest\Wodsoft.WebPresentation.WebTest.csproj", "{796D7D06-B4B0-4996-BEFB-4479A350E073}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.Xaml", "src\Wodsoft.Xaml\Wodsoft.Xaml.xproj", "{10CD04B9-E751-47D3-B19D-E579138663E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.Xaml", "src\Wodsoft.Xaml\Wodsoft.Xaml.csproj", "{10CD04B9-E751-47D3-B19D-E579138663E7}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Wodsoft.WebPresentation.ConsoleTest", "test\Wodsoft.WebPresentation.ConsoleTest\Wodsoft.WebPresentation.ConsoleTest.xproj", "{05BF9F85-4419-4612-9028-C709B1C2985F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.ConsoleTest", "test\Wodsoft.WebPresentation.ConsoleTest\Wodsoft.WebPresentation.ConsoleTest.csproj", "{05BF9F85-4419-4612-9028-C709B1C2985F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,5 +79,8 @@ Global
 		{796D7D06-B4B0-4996-BEFB-4479A350E073} = {FA892EAF-612B-437D-91CB-E92C63B1966E}
 		{10CD04B9-E751-47D3-B19D-E579138663E7} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
 		{05BF9F85-4419-4612-9028-C709B1C2985F} = {FA892EAF-612B-437D-91CB-E92C63B1966E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCD36971-8DA3-438A-A827-12916E6DE014}
 	EndGlobalSection
 EndGlobal
