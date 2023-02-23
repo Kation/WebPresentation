@@ -1,24 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
+using Wodsoft.WebPresentation;
 
-namespace Wodsoft.WebPresentation.WebTest
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<Startup>()
-                .Build();
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<WebPresentationComponent>("#app");
 
-            host.Run();
-        }
-    }
-}
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+await builder.Build().RunAsync();

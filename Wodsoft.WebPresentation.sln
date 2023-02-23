@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F4878CB8-04DD-46F4-B02C-6E70A2BCBC6E}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,17 +16,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation", "src\Wodsoft.WebPresentation\Wodsoft.WebPresentation.csproj", "{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.AspNetCore", "src\Wodsoft.WebPresentation.AspNetCore\Wodsoft.WebPresentation.AspNetCore.csproj", "{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.AspNetCore.Mvc", "src\Wodsoft.WebPresentation.AspNetCore.Mvc\Wodsoft.WebPresentation.AspNetCore.Mvc.csproj", "{E23DF653-67BD-4D18-922C-4745850D94D9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.Visualization", "src\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.csproj", "{3E62557B-E91A-4526-8614-D8C4F9F8F555}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.WebTest", "test\Wodsoft.WebPresentation.WebTest\Wodsoft.WebPresentation.WebTest.csproj", "{796D7D06-B4B0-4996-BEFB-4479A350E073}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.Xaml", "src\Wodsoft.Xaml\Wodsoft.Xaml.csproj", "{10CD04B9-E751-47D3-B19D-E579138663E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.ConsoleTest", "test\Wodsoft.WebPresentation.ConsoleTest\Wodsoft.WebPresentation.ConsoleTest.csproj", "{05BF9F85-4419-4612-9028-C709B1C2985F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.Runtime.WebAssembly", "src\Wodsoft.WebPresentation.Runtime.WebAssembly\Wodsoft.WebPresentation.Runtime.WebAssembly.csproj", "{396BE4AF-CC8E-4677-AE01-81911DE7293E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,14 +38,6 @@ Global
 		{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E23DF653-67BD-4D18-922C-4745850D94D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E23DF653-67BD-4D18-922C-4745850D94D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E23DF653-67BD-4D18-922C-4745850D94D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E23DF653-67BD-4D18-922C-4745850D94D9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E62557B-E91A-4526-8614-D8C4F9F8F555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E62557B-E91A-4526-8614-D8C4F9F8F555}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E62557B-E91A-4526-8614-D8C4F9F8F555}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -62,10 +50,10 @@ Global
 		{10CD04B9-E751-47D3-B19D-E579138663E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10CD04B9-E751-47D3-B19D-E579138663E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10CD04B9-E751-47D3-B19D-E579138663E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05BF9F85-4419-4612-9028-C709B1C2985F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05BF9F85-4419-4612-9028-C709B1C2985F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05BF9F85-4419-4612-9028-C709B1C2985F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05BF9F85-4419-4612-9028-C709B1C2985F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{396BE4AF-CC8E-4677-AE01-81911DE7293E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{396BE4AF-CC8E-4677-AE01-81911DE7293E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{396BE4AF-CC8E-4677-AE01-81911DE7293E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{396BE4AF-CC8E-4677-AE01-81911DE7293E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,12 +61,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{05A7E736-0D46-409C-B326-56C22B129644} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
 		{C5C8C007-E8C6-4FFD-9AD5-CCF9412A3585} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
-		{26B4FA6D-F87A-4C1C-8D46-B8335379DBBD} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
-		{E23DF653-67BD-4D18-922C-4745850D94D9} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
 		{3E62557B-E91A-4526-8614-D8C4F9F8F555} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
 		{796D7D06-B4B0-4996-BEFB-4479A350E073} = {FA892EAF-612B-437D-91CB-E92C63B1966E}
 		{10CD04B9-E751-47D3-B19D-E579138663E7} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
-		{05BF9F85-4419-4612-9028-C709B1C2985F} = {FA892EAF-612B-437D-91CB-E92C63B1966E}
+		{396BE4AF-CC8E-4677-AE01-81911DE7293E} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCD36971-8DA3-438A-A827-12916E6DE014}
