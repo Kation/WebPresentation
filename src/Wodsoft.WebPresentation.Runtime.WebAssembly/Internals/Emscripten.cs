@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wodsoft.WebPresentation.Internals
+namespace Wodsoft.Web.Internals
 {
     internal class Emscripten
     {
@@ -13,6 +13,6 @@ namespace Wodsoft.WebPresentation.Internals
         public static extern int EM_ASM_INT(string code);
 
         [DllImport("libEmscriptenWrapper", EntryPoint = "run_script_string")]
-        public static extern int EM_ASM_STRING(string code);
+        public static extern string EM_ASM_STRING(string code);
     }
 }

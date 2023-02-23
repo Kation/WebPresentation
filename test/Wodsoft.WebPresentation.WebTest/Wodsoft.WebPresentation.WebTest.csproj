@@ -1,20 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <TargetFramework>net7.0</TargetFramework>    
     <AssemblyName>Wodsoft.WebPresentation.WebTest</AssemblyName>
-    <OutputType>Exe</OutputType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!--<RunAOTCompilation>true</RunAOTCompilation>-->
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Wodsoft.WebPresentation.Runtime.WebAssembly\Wodsoft.WebPresentation.Runtime.WebAssembly.csproj" />
-    <ProjectReference Include="..\..\src\Wodsoft.WebPresentation.Visualization\Wodsoft.WebPresentation.Visualization.csproj" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Wodsoft.WebPresentation.Runtime.WebAssembly\Wodsoft.WebPresentation.Runtime.WebAssembly.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeFileReference Include="$(SolutionDir)\src\native\libEmscriptenWrapper.c"/>
+    <NativeFileReference Include="$(SolutionDir)\src\native\libWebGLWrapper.c"/>
   </ItemGroup>
 
 </Project>

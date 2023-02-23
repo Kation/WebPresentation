@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <OutputType>Library</OutputType>
-    <RootNamespace>Wodsoft.WebPresentation</RootNamespace>
+    <RootNamespace>Wodsoft.Web</RootNamespace>
   </PropertyGroup>
   
   <ItemGroup>
@@ -13,6 +13,7 @@
   
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
+    <PackageReference Include="Microsoft.JSInterop.WebAssembly" Version="7.0.2" />
   </ItemGroup>
 
 </Project>

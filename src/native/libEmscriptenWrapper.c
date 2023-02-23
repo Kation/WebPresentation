@@ -1,6 +1,6 @@
 ﻿#include <emscripten.h>
 
-char* run_script_int(const char* script)
+int run_script_int(const char* script)
 {
 	return emscripten_run_script_int(script);
 }

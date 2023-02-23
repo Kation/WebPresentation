@@ -1,0 +1,47 @@
+﻿@using Microsoft.JSInterop
+@using Wodsoft.Web.Internals
+<div id="root" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;">
+    <canvas id="rootView" style="width:100%;height:100%;"></canvas>
+</div>
+@code {
+    [Inject]
+    public Microsoft.JSInterop.IJSRuntime JSRuntime { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("showInfo", null);
+        if (firstRender)
+        {
+            var glAttr = new WebGLContextAttributes();
+            WebGL.InitContextAttributes(ref glAttr);
+            glAttr.MajorVersion = 2;
+            //glAttr.ProxyContextToMainThread = WebGLContextProxyMode.FALLBACK;
+            //glAttr.RenderViaOffscreenBackBuffer = true;
+            Console.WriteLine("WebGL attribute initialized.");
+            Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(glAttr, new System.Text.Json.JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                    IncludeFields = true
+                }));
+            var glContext = WebGL.CreateContext("#rootView", ref glAttr);
+            if (glContext.Handle == 0)
+            {
+                Console.WriteLine("WebGL context create failed.");
+                return;
+            }
+            Console.WriteLine("WebGL context created.");
+            var result = WebGL.SetContext(glContext);
+            if (result == EmscriptenResult.SUCCESS)
+                Console.WriteLine("WebGL set context successful.");
+            else
+            {
+                Console.WriteLine($"WebGL set context failed. Result: {result.ToString()}.");
+                return;
+            }
+            WebGL.ClearColor(1, 0, 0, 1);
+            Console.WriteLine("Clear color to Red.");
+            WebGL.Clear();
+            Console.WriteLine("Clear.");
+        }
+    }
+}

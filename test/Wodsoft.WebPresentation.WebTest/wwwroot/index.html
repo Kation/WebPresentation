@@ -6,7 +6,7 @@
     <title>BlazorApp-Test</title>
     <base href="/" />
     <link href="css/app.css" rel="stylesheet" />
-    
+
     <!-- If you add any scoped CSS files, uncomment the following to load them
     <link href="BlazorApp_Test.styles.css" rel="stylesheet" /> -->
 </head>
@@ -19,68 +19,12 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
-    <script type="module">
-        import { BrotliDecode } from './js/decode.min.js';
-        if (navigator["gpu"]) {
-            console.log("Initializing webgpu...");
-            navigator["gpu"]["requestAdapter"]()
-                .then(
-                    function (adapter) {
-                        adapter["requestDevice"]().then(function (device) {
-                            console.log("Device: " + device);
-                            Module["preinitializedWebGPUDevice"] = device;
-
-                            Blazor.start({ // start manually with loadBootResource
-                                loadBootResource: function (type, name, defaultUri, integrity) {
-                                    if (type == "dotnetjs")
-                                        return defaultUri;
-                                    if (location.hostname !== 'localhost')
-                                        defaultUri = defaultUri + '.br';
-                                    const fetchResources = fetch(defaultUri, { cache: 'no-cache' });
-                                    return fetchResources.then(async (r) => {
-                                        const reader = r.body.getReader();
-                                        let length = +r.headers.get('Content-Length');
-                                        let dataLength = 0;
-                                        let dataArray = [];
-                                        while (true) {
-                                            const { done, value } = await reader.read();
-                                            if (done) {
-                                                break;
-                                            }
-                                            dataArray.push(value);
-                                            dataLength += value.length;
-                                        }
-                                        let data = new Uint8Array(dataLength);
-                                        let position = 0;
-                                        for (let array of dataArray) {
-                                            data.set(array, position);
-                                            position += array.length;
-                                        }
-                                        const contentType = type ===
-                                            'dotnetwasm' ? 'application/wasm' : 'application/octet-stream';
-                                        if (location.hostname !== 'localhost') {
-                                            const decompressedResponseArray = BrotliDecode(data);
-                                            return new Response(decompressedResponseArray,
-                                                { headers: { 'content-type': contentType } });
-                                        }
-                                        else
-                                            return new Response(data,
-                                                { headers: { 'content-type': contentType } });
-                                    });
-                                    return fetchResources;
-                                }
-                            });
-                        });
-                    },
-                    function () {
-                        console.error("No WebGPU adapter; not starting");
-                    });
-        }
-        else {
-            console.error("No support for WebGPU; not starting");
+    <script type="text/javascript">
+        function showInfo() {
+            console.log(document.getElementById('rootView'));
         }
     </script>
+    <script src="_framework/blazor.webassembly.js"></script>
 </body>
 
 </html>

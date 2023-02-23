@@ -24,6 +24,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.Xaml", "src\Wodsoft
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wodsoft.WebPresentation.Runtime.WebAssembly", "src\Wodsoft.WebPresentation.Runtime.WebAssembly\Wodsoft.WebPresentation.Runtime.WebAssembly.csproj", "{396BE4AF-CC8E-4677-AE01-81911DE7293E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "native", "native", "{CA096B81-354B-484F-80DE-E301D3EDC13D}"
+	ProjectSection(SolutionItems) = preProject
+		src\native\libEmscriptenWrapper.c = src\native\libEmscriptenWrapper.c
+		src\native\libWebGLWrapper.c = src\native\libWebGLWrapper.c
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +71,7 @@ Global
 		{796D7D06-B4B0-4996-BEFB-4479A350E073} = {FA892EAF-612B-437D-91CB-E92C63B1966E}
 		{10CD04B9-E751-47D3-B19D-E579138663E7} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
 		{396BE4AF-CC8E-4677-AE01-81911DE7293E} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
+		{CA096B81-354B-484F-80DE-E301D3EDC13D} = {8907DED9-C629-4408-8673-952BB2AB0BDB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCD36971-8DA3-438A-A827-12916E6DE014}
